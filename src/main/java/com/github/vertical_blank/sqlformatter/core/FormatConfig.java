@@ -7,11 +7,13 @@ public class FormatConfig {
 	public final String indent;
 	public final Params.Holder params;
 	public final boolean uppercase;
+	public final int linesBetweenQueries;
 
-	FormatConfig(String indent, Params.Holder params, boolean uppercase) {
+	FormatConfig(String indent, Params.Holder params, boolean uppercase, int linesBetweenQueries) {
 		this.indent = indent;
 		this.params = params;
 		this.uppercase = uppercase;
+		this.linesBetweenQueries = linesBetweenQueries;
 	}
 
 	public static FormatConfigBuilder builder() {
@@ -22,6 +24,7 @@ public class FormatConfig {
 		private String indent;
 		private Params.Holder params;
 		private boolean uppercase;
+		private int linesBetweenQueries;
 
 		FormatConfigBuilder() {
 		}
@@ -50,8 +53,16 @@ public class FormatConfig {
 			return this;
 		}
 
+		/**
+		 * @param uppercase Converts keywords to uppercase
+		 */
+		public FormatConfigBuilder linesBetweenQueries(int linesBetweenQueries) {
+			this.linesBetweenQueries = linesBetweenQueries;
+			return this;
+		}
+
 		public FormatConfig build() {
-			return new FormatConfig(this.indent, this.params, this.uppercase);
+			return new FormatConfig(this.indent, this.params, this.uppercase, this.linesBetweenQueries);
 		}
 	}
 }
