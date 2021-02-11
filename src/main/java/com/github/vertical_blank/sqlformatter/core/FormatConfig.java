@@ -7,9 +7,9 @@ public class FormatConfig {
 	public final String indent;
 	public final Params.Holder params;
 	public final boolean uppercase;
-	public final int linesBetweenQueries;
+	public final Integer linesBetweenQueries;
 
-	FormatConfig(String indent, Params.Holder params, boolean uppercase, int linesBetweenQueries) {
+	FormatConfig(String indent, Params.Holder params, boolean uppercase, Integer linesBetweenQueries) {
 		this.indent = indent;
 		this.params = params;
 		this.uppercase = uppercase;
@@ -21,10 +21,10 @@ public class FormatConfig {
 	}
 
 	public static class FormatConfigBuilder {
-		private String indent;
+		private String indent = DEFAULT_INDENT;
 		private Params.Holder params;
 		private boolean uppercase;
-		private int linesBetweenQueries;
+		private Integer linesBetweenQueries;
 
 		FormatConfigBuilder() {
 		}
